@@ -14,13 +14,13 @@ Parameters:
 Mappings: 
   RegionMap: 
     us-east-1: 
-      datascience: "arn:aws:sagemaker:us-east-1:081325390199:image/datascience-1.0"
+      tensorflow_2_1_py36: "arn:aws:sagemaker:us-east-1:081325390199:image/tensorflow-2.1-cpu-py36"
     us-east-2:
-      datascience: "arn:aws:sagemaker:us-east-2:429704687514:image/datascience-1.0"
+      tensorflow_2_1_py36: "arn:aws:sagemaker:us-east-2:429704687514:image/tensorflow-2.1-cpu-py36"
     us-west-1: 
-      datascience: "arn:aws:sagemaker:us-west-1:742091327244:image/datascience-1.0"
+      tensorflow_2_1_py36: "arn:aws:sagemaker:us-west-1:742091327244:image/tensorflow-2.1-cpu-py36"
     us-west-2: 
-      datascience: "arn:aws:sagemaker:us-west-2:236514542706:image/datascience-1.0"
+      tensorflow_2_1_py36: "arn:aws:sagemaker:us-west-2:236514542706:image/tensorflow-2.1-cpu-py36"
 
 Resources: 
 
@@ -271,19 +271,19 @@ Resources:
       DomainId: !GetAtt StudioDomain.DomainId
       UserProfileName: !Ref UserProfileName
   
-  DataScienceApp:
+  ImageSearchApp:
     Type: AWS::SageMaker::App
     DependsOn: UserProfile
     Properties: 
-      AppName: instance-event-engine-datascience-ml-t3-medium
+      AppName: instance-event-engine-img-search-ml-m5-2xlarge
       AppType: KernelGateway
       DomainId: !GetAtt StudioDomain.DomainId
       ResourceSpec: 
-        InstanceType:  ml.t3.medium
+        InstanceType:  ml.m5.2xlarge
         SageMakerImageArn: !FindInMap
           - RegionMap
           - !Ref 'AWS::Region'
-          - datascience
+          - tensorflow_2_1_py36
       UserProfileName: !Ref UserProfileName
 
   s3BucketTraining:
