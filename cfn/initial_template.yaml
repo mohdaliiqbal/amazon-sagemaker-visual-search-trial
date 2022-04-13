@@ -14,13 +14,13 @@ Parameters:
 Mappings: 
   RegionMap: 
     us-east-1: 
-      tensorflow_2_1_py36: "arn:aws:sagemaker:us-east-1:081325390199:image/tensorflow-2.1-cpu-py36"
+      tensorflowimg: "arn:aws:sagemaker:us-east-1:081325390199:image/tensorflow-2.1-cpu-py36"
     us-east-2:
-      tensorflow_2_1_py36: "arn:aws:sagemaker:us-east-2:429704687514:image/tensorflow-2.1-cpu-py36"
+      tensorflowimg: "arn:aws:sagemaker:us-east-2:429704687514:image/tensorflow-2.1-cpu-py36"
     us-west-1: 
-      tensorflow_2_1_py36: "arn:aws:sagemaker:us-west-1:742091327244:image/tensorflow-2.1-cpu-py36"
+      tensorflowimg: "arn:aws:sagemaker:us-west-1:742091327244:image/tensorflow-2.1-cpu-py36"
     us-west-2: 
-      tensorflow_2_1_py36: "arn:aws:sagemaker:us-west-2:236514542706:image/tensorflow-2.1-cpu-py36"
+      tensorflowimg: "arn:aws:sagemaker:us-west-2:236514542706:image/tensorflow-2.1-cpu-py36"
 
 Resources: 
 
@@ -283,7 +283,7 @@ Resources:
         SageMakerImageArn: !FindInMap
           - RegionMap
           - !Ref 'AWS::Region'
-          - tensorflow_2_1_py36
+          - tensorflowimg
       UserProfileName: !Ref UserProfileName
 
   s3BucketTraining:
