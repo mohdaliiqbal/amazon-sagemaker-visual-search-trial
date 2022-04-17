@@ -7,7 +7,7 @@ Resources:
     Properties:
       InstanceType: ml.m5.2xlarge
       RoleArn: !GetAtt Role.Arn
-      DefaultCodeRepository: https://github.com/nagibshah/amazon-sagemaker-visual-search-trial
+      DefaultCodeRepository: https://github.com/mohdaliiqbal/amazon-sagemaker-visual-search-trial
 
   Role:
     Type: AWS::IAM::Role
@@ -55,7 +55,7 @@ Resources:
         ErrorDocument: error.html
 
   Domain:
-    Type: AWS::Elasticsearch::Domain
+    Type: AWS::OpenSearchService::Domain
     Properties:
       AccessPolicies:
         Version: 2012-10-17
@@ -65,12 +65,12 @@ Resources:
               AWS: !Ref AWS::AccountId
             Action: 'es:*'
             Resource: !Sub arn:aws:es:${AWS::Region}:${AWS::AccountId}:domain/*/*
-      ElasticsearchVersion: 7.4
-      ElasticsearchClusterConfig:
-        InstanceType: "t3.medium.elasticsearch"
+      EngineVersion: OpenSearch_1.2
+      ClusterConfig:
+        InstanceType: "m6g.large.search"
       EBSOptions:
         EBSEnabled: True
-        VolumeSize: 10
+        VolumeSize: 20
         VolumeType: gp2
 
 
