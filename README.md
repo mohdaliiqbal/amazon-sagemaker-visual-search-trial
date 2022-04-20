@@ -1,5 +1,5 @@
 ## Visual image search
-This repository is part of AWS blog to create a visual search application using Amazon SageMaker and Amazon Elasticsearch
+This repository is part of AWS workshop to teach attendees how to create a visual search application using Amazon SageMaker and Amazon Elasticsearch
 
 ## How does it work?
 
@@ -14,3 +14,6 @@ When we present a new query image, it's computing the related feature vector fro
 ## License
 
 This library is licensed under the MIT-0 License. See the LICENSE file.
+
+Fashion images from feidegger, a zalandoresearch dataset is licensed under the MIT License (MIT) Copyright © 2017 Zalando SE, https://tech.zalando.com
+
